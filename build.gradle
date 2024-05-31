@@ -59,9 +59,9 @@ dependencies {
 
     // Scroll & skript-parser
     modImplementation ('org.scrolllang:skript-parser:alpha2')
-    //modImplementation ('org.scrolllang:scroll-dev:dev1') {
-    //    transitive = false
-    //}
+    modImplementation ('org.scrolllang:scroll-dev:dev1') {
+        transitive = false
+    }
 
 }
 

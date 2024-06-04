@@ -21,12 +21,13 @@ base {
 
 repositories {
     mavenCentral()
-    maven {
-        url = 'https://maven.pkg.github.com/ScrollLang/skript-parser'
-    }
 
     maven {
         url = 'https://maven.pkg.github.com/ScrollLang/Scroll'
+    }
+
+    maven {
+        url = 'https://maven.pkg.github.com/ScrollLang/skript-parser'
     }
 }
 

@@ -6,6 +6,10 @@
 name: build
 on: [pull_request, push]
 
+env:
+  PACKAGES_USER: ${{ secrets.PACKAGES_USER }}
+  PACKAGES_KEY: ${{ secrets.PACKAGES_KEY }}
+
 jobs:
   build:
     strategy:
@@ -30,7 +34,7 @@ jobs:
       - name: git submodules
         run: git submodule update --init --recursive
       - name: make gradle wrapper executable
-        if: ${{ runner.os != 'Windows' }}
+        if: runner.os != 'Windows'
         run: chmod +x ./gradlew
       - name: build
         run: ./gradlew build

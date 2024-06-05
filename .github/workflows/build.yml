@@ -6,10 +6,6 @@
 name: build
 on: [pull_request, push]
 
-env:
-  PACKAGES_USER: ${{ secrets.PACKAGES_USER }}
-  PACKAGES_KEY: ${{ secrets.PACKAGES_KEY }}
-
 jobs:
   build:
     strategy:
@@ -35,8 +31,15 @@ jobs:
       - name: make gradle wrapper executable
         if: runner.os != 'Windows'
         run: chmod +x ./gradlew
+      - name: setup gradle properties
+        run: |
+          echo "gpr.user=${{ secrets.PACKAGES_USER }}" >> gradle.properties
+          echo "gpr.key=${{ secrets.PACKAGES_TOKEN }}" >> gradle.properties
       - name: build
         run: ./gradlew build
+        env:
+          PACKAGES_USER: ${{ secrets.PACKAGES_USER }}
+          PACKAGES_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
       - name: capture build artifacts
         if: ${{ runner.os == 'Linux' && matrix.java == '17' }} # Only upload artifacts built from latest java on one OS
         uses: actions/upload-artifact@v4

@@ -1,6 +1,6 @@
 # scroll-example
 
-An example addon for scroll.
+An example addon for Scroll.
 
 ## Setup
 

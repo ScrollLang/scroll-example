@@ -31,10 +31,6 @@ jobs:
       - name: make gradle wrapper executable
         if: runner.os != 'Windows'
         run: chmod +x ./gradlew
-      - name: setup gradle properties
-        run: |
-          echo "gpr.user=${{ secrets.PACKAGES_USER }}" >> gradle.properties
-          echo "gpr.key=${{ secrets.PACKAGES_KEY }}" >> gradle.properties
       - name: build
         run: ./gradlew build
         env:

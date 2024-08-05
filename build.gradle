@@ -66,7 +66,7 @@ dependencies {
 
     // TOML
     modImplementation include('org.tomlj:tomlj:1.1.1')
-    modImplementation include('org.antlr:antlr4-runtime:4.13.1')
+    modImplementation include('org.antlr:antlr4-runtime:4.13.2')
 
     // Scroll & skript-parser
     modImplementation ('org.scrolllang:skript-parser:alpha2')

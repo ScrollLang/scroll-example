@@ -44,11 +44,6 @@ public class ExampleMain extends ScrollAddon implements ModInitializer {
 		loadClasses("me.scrolllang.example", "elements");
 	}
 
-	/**
-	 * To only be used be scroll-reflect.
-	 * 
-	 * @return ScrollRegistration registered to scroll-reflect.
-	 */
 	public static ScrollRegistration getRegistration() {
 		return REGISTRATION;
 	}

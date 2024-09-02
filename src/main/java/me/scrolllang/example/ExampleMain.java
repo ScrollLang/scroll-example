@@ -1,17 +1,8 @@
 package me.scrolllang.example;
 
-import java.io.IOException;
-import java.util.Optional;
-
-import org.scrolllang.scroll.Scroll;
 import org.scrolllang.scroll.ScrollAddon;
 import org.scrolllang.scroll.ScrollRegistration;
 
-import io.github.syst3ms.skriptparser.types.Type;
-import io.github.syst3ms.skriptparser.types.TypeManager;
-import io.github.syst3ms.skriptparser.types.comparisons.Comparator;
-import io.github.syst3ms.skriptparser.types.comparisons.Comparators;
-import io.github.syst3ms.skriptparser.types.comparisons.Relation;
 import net.fabricmc.api.ModInitializer;
 
 public class ExampleMain extends ScrollAddon implements ModInitializer {
@@ -35,7 +26,6 @@ public class ExampleMain extends ScrollAddon implements ModInitializer {
 	}
 
 	@Override
-	@SuppressWarnings("rawtypes")
 	protected void startRegistration(ScrollRegistration registration) {
 		if (REGISTRATION != null || registration == null)
 			throw new IllegalStateException();

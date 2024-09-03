@@ -25,6 +25,14 @@ public class ExampleMain extends ScrollAddon implements ModInitializer {
 		
 	}
 
+	/*
+	 * This method is called by the skript-parser if the addon
+	 * was placed in the addons folder.
+	 */
+	public void initAddon() {
+		onInitialize();
+	}
+
 	@Override
 	protected void startRegistration(ScrollRegistration registration) {
 		if (REGISTRATION != null || registration == null)

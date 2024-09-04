@@ -1,4 +1,4 @@
-package me.scrolllang.example;
+package me.scroll.example;
 
 import org.scrolllang.scroll.ScrollAddon;
 import org.scrolllang.scroll.ScrollRegistration;
@@ -12,7 +12,7 @@ public class ExampleMain extends ScrollAddon implements ModInitializer {
 	private ScrollAddon ADDON_INSTANCE;
 
 	public ExampleMain() {
-		super("example");
+		super("Example");
 		if (INSTANCE == null) {
 			INSTANCE = this;
 		} else {
@@ -39,7 +39,7 @@ public class ExampleMain extends ScrollAddon implements ModInitializer {
 			throw new IllegalStateException();
 
 		REGISTRATION = registration;
-		loadClasses("me.scrolllang.example", "elements");
+		loadClasses("me.scroll.example", "elements");
 	}
 
 	public static ScrollRegistration getRegistration() {

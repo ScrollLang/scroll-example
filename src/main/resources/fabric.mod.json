@@ -5,6 +5,7 @@
 	"name": "Scroll Example",
 	"description": "An example addon for Scroll",
 	"authors": [
+		"ScrollLang",
 		"Example"
 	],
 	"contact": {
@@ -14,7 +15,7 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"me.scrolllang.example.ExampleMain"
+			"me.scroll.example.ExampleMain"
 		]
 	},
 	"depends": {

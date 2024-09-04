@@ -1,6 +1,8 @@
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import org.apache.tools.ant.filters.ReplaceTokens
 
 plugins {
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
     id 'fabric-loom' version '1.7-SNAPSHOT'
     id 'maven-publish'
     id 'java'
@@ -9,6 +11,7 @@ plugins {
 compileTestJava.options.encoding = 'UTF-8'
 compileJava.options.encoding = 'UTF-8'
 
+mainClassName = 'me.scroll.example.ExampleMain'
 archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
@@ -24,8 +27,8 @@ repositories {
     maven {
         url = 'https://maven.pkg.github.com/ScrollLang/Scroll'
         credentials {
-            username = System.getenv("PACKAGES_USER") ?: project.findProperty("scrollUsername")
-            password = System.getenv("PACKAGES_KEY") ?: project.findProperty("scrollPassword")
+            username = System.getenv('PACKAGES_USER') ?: project.findProperty('scrollUsername')
+            password = System.getenv('PACKAGES_KEY') ?: project.findProperty('scrollPassword')
         }
     }
 
@@ -33,8 +36,8 @@ repositories {
     maven {
         url = 'https://maven.pkg.github.com/ScrollLang/skript-parser'
         credentials {
-            username = System.getenv("PACKAGES_USER") ?: project.findProperty("scrollUsername")
-            password = System.getenv("PACKAGES_KEY") ?: project.findProperty("scrollPassword")
+            username = System.getenv('PACKAGES_USER') ?: project.findProperty('scrollUsername')
+            password = System.getenv('PACKAGES_KEY') ?: project.findProperty('scrollPassword')
         }
     }
 }
@@ -90,6 +93,11 @@ jar {
             "${it}_${project.base.archivesName.get()}"
         }
     }
+    manifest {
+        attributes('Main-Class': mainClassName,
+            'Implementation-Title': 'scroll-example',
+            'Implementation-Version': project.property('version'))
+    }
 }
 
 // configure the maven publication
@@ -102,5 +110,9 @@ publishing {
 }
 
 processResources {
-    filter ReplaceTokens, tokens: ["version": project.property("version")]
+    filter ReplaceTokens, tokens: ['version': project.property('version')]
+}
+
+shadowJar {
+	minimize()
 }

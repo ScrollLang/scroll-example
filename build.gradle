@@ -1,8 +1,7 @@
-import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import org.apache.tools.ant.filters.ReplaceTokens
 
 plugins {
-    id 'com.github.johnrengelman.shadow' version '8.1.1'
+    id 'com.gradleup.shadow' version '8.3.0'
     id 'fabric-loom' version '1.7-SNAPSHOT'
     id 'maven-publish'
     id 'java'
@@ -11,7 +10,8 @@ plugins {
 compileTestJava.options.encoding = 'UTF-8'
 compileJava.options.encoding = 'UTF-8'
 
-mainClassName = 'me.scroll.example.ExampleMain'
+def mainClassName = 'me.scroll.example.ExampleMain'
+
 archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group

@@ -63,7 +63,7 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
     // Scroll & skript-parser
-    modImplementation ('org.scrolllang:skript-parser:alpha2')
+    modImplementation ('org.scrolllang:skript-parser:alpha5')
     modImplementation ('org.scrolllang:scroll-dev:1.21.1+dev.1') {
         transitive = false
     }

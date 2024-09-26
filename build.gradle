@@ -1,5 +1,9 @@
 import org.apache.tools.ant.filters.ReplaceTokens
 
+buildscript {
+  apply from: 'dependencies.gradle'
+}
+
 plugins {
     id 'com.gradleup.shadow' version '8.3.0'
     id 'fabric-loom' version '1.7-SNAPSHOT'
@@ -18,6 +22,13 @@ group = project.maven_group
 
 base {
     archivesName = project.archives_base_name
+}
+
+configurations {
+    // Use 'shade' instead of 'include' and 'gradlew shadowJar'
+    // to build the jar if you require shading dependencies. https://github.com/FabricMC/fabric-loom/issues/762
+    // If the dependencies you are shading is a mod already, see https://fabricmc.net/wiki/tutorial:loader04x#nested_jars 
+    shade.extendsFrom include
 }
 
 repositories {
@@ -82,6 +93,12 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+    }
+}
+
+java {
     withSourcesJar()
     sourceCompatibility = JavaVersion.VERSION_21
     targetCompatibility = JavaVersion.VERSION_21
@@ -114,5 +131,5 @@ processResources {
 }
 
 shadowJar {
-	minimize()
+	configurations = [project.configurations.shade]
 }

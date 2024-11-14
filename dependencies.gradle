@@ -9,7 +9,7 @@ ext {
 	loader_version = '0.16.9'
 
 	// Fabric api
-	fabric_version = '0.108.0+'
+	fabric_version = '0.108.1+'
 
     // Scroll & skript-parser
 	skript_parser_version = 'alpha5'

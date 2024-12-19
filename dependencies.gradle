@@ -4,8 +4,8 @@
 ext {
 	// Fabric Properties
 	// check these on https://fabricmc.net/develop
-	minecraft_version = '1.21.3'
-	yarn_mappings = '1.21.3+build.2'
+	minecraft_version = '1.21.4'
+	yarn_mappings = '1.21.4+build.2'
 	loader_version = '0.16.9'
 
 	// Fabric api
@@ -13,7 +13,7 @@ ext {
 
 	// Scroll & skript-parser
 	skript_parser_version = 'alpha5'
-	scroll_version = '1.21.1+dev.2'
+	scroll_version = '1.21.4+dev.1'
 
 	// Mod Properties
 	mod_version = '1.0'

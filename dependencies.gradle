@@ -11,7 +11,7 @@ ext {
 	// Fabric api
 	fabric_version = '0.112.1+'
 
-    // Scroll & skript-parser
+	// Scroll & skript-parser
 	skript_parser_version = 'alpha5'
 	scroll_version = '1.21.1+dev.2'
 
